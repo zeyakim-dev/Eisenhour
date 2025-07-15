@@ -1,0 +1,44 @@
+[project]
+name = "eisenhour"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+package = true
+
+
+[tool.ruff.lint]
+extend-select = ["UP", "I", "N", "RUF", "TRY"]
+
+[tool.mypy]
+python_version = "3.13"
+mypy_path = "src"
+strict = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+ignore_missing_imports = true
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib"
+python_files = [
+    "test_*.py"
+]
+testpaths = ["tests"]
+markers = [
+    "unit",
+    "integration",
+    "e2e"
+]
+
+[tool.coverage.run]
+relative_files = true
+
+[tool.coverage.paths]
+source = [
+    "src/",  
+    "app/src"
+]
