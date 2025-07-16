@@ -1,0 +1,28 @@
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.7.2
+    hooks:
+      - id: uv-lock
+
+  # ruff: 린트 및 포맷
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.8
+    hooks:
+      # 린트만 실행
+      - id: ruff
+        args: [--fix]
+      # 포맷터 실행 (원한다면 --fix 붙여 자동 수정도 가능)
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.900
+    hooks:
+      - id: mypy
+        name: mypy
+        pass_filenames: false
+        language: system
+        entry: uv run mypy src/
+        args:
+          - --config-file
+          - pyproject.toml
