@@ -207,3 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 wiki/
+
+# Optional: 로컬 전용 Pyright 설정 무시
+pyrightconfig.json
