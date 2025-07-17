@@ -52,6 +52,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
+    { name = "pydantic" },
     { name = "uvicorn" },
 ]
 
@@ -60,6 +61,9 @@ dev = [
     { name = "mypy" },
     { name = "pytest" },
 ]
+lint = [
+    { name = "mypy" },
+]
 test = [
     { name = "pytest" },
 ]
@@ -67,6 +71,7 @@ test = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.116.1" },
+    { name = "pydantic", extras = ["standard"], specifier = ">=2.11.7" },
     { name = "uvicorn", specifier = ">=0.35.0" },
 ]
 
@@ -75,6 +80,7 @@ dev = [
     { name = "mypy", specifier = ">=1.11.1" },
     { name = "pytest", specifier = ">=8.4.1" },
 ]
+lint = [{ name = "mypy", specifier = ">=1.17.0" }]
 test = [{ name = "pytest", specifier = ">=8.4.1" }]
 
 [[package]]
